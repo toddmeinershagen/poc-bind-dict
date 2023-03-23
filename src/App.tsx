@@ -22,6 +22,12 @@ function getBindableManagerSettingsFrom(clientSettings:ClientSettings, managerSe
 }
 
 
+function displayBindableSettings(bindableSettings:ManagerSettings) {
+  let json = JSON.stringify(bindableSettings);
+  alert(json);
+}
+
+
 function App() {
   let clientId = 213476;
   let employeeUid = 1023234001;
@@ -32,6 +38,7 @@ function App() {
   return (
     <div className="App">
       <ManagerSettingsCard clientSettings={clientSettings} managerSettings={bindableSettings} />
+      {/* <button onClick={() => displayBindableSettings(bindableSettings)}>Display</button> */}
     </div>
   );
 }
