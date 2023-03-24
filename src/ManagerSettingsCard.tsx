@@ -2,12 +2,12 @@ import { Fragment } from 'react';
 import { ClientSettings } from './ClientSettings';
 import { ManagerSettings } from './ManagerSettings';
 
-interface IGreetingProps {
+interface IManagerSettingsCardProps {
     clientSettings: ClientSettings
     managerSettings: ManagerSettings
 };
   
-const ManagerSettingsCard = ({clientSettings, managerSettings}: IGreetingProps) => {
+const ManagerSettingsCard = ({clientSettings, managerSettings}: IManagerSettingsCardProps) => {
     let elements: JSX.Element[] = [];
     clientSettings.settings.forEach((item, key) => {
         var managerEntry = managerSettings.settings.get(key);
