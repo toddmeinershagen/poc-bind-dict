@@ -1,16 +1,16 @@
-export class ManagerSettings {
+export class MetricSettings {
     clientId: Number;
     employeeUid: Number;
-    settings: Map<String, ManagerSetting>;
+    settings: Map<String, MetricSetting>;
   
     constructor() {
       this.clientId = 0;
       this.employeeUid = 0;
-      this.settings = new Map<String, ManagerSetting>();
+      this.settings = new Map<String, MetricSetting>();
     }
 }
   
-  export class ManagerSetting {
+  export class MetricSetting {
     timeFrame: string;
     
     constructor() {

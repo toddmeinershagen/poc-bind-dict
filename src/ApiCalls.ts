@@ -1,23 +1,33 @@
 
-import { ClientSettings, ClientSetting } from './ClientSettings';
-import { ManagerSettings, ManagerSetting } from './ManagerSettings';
+import { MetricDialogSettings, MetricDialogSetting } from './MetricDialogSettings';
+import { MetricSettings, MetricSetting } from './MetricSettings';
 
 
-export function getClientSettings(clientId:Number):ClientSettings {
-    var clientSettings:ClientSettings = {
+export function getClientSettings(clientId:Number):MetricDialogSettings {
+    var clientSettings:MetricDialogSettings = {
       clientId: clientId,
-      settings: new Map<String, ClientSetting>()
+      settings: new Map<String, MetricDialogSetting>()
     };
     
     clientSettings.settings.set("Promotions", {
       name: "TimeFrame",
       description: "Select a time frame/period.",
+      options: [
+        { id: "1:day", text: "1 day" },
+        { id: "1:week", text: "1 week" }, 
+        { id: "1:month", text: "1 month" }
+      ],
       default: "1:day"
     });
   
     clientSettings.settings.set("Recognitions", {
       name: "TimeFrame",
       description: "Select a time frame/period.",
+      options: [
+        { id: "1:day", text: "1 day" },
+        { id: "1:week", text: "1 week" }, 
+        { id: "1:month", text: "1 month" }
+      ],
       default: "1:day"
     });
   
@@ -25,11 +35,11 @@ export function getClientSettings(clientId:Number):ClientSettings {
 }
   
   
-  export function getManagerSettings(clientId:Number, employeeUid: Number):ManagerSettings {
-    var managerSettings:ManagerSettings = {
+  export function getManagerSettings(clientId:Number, employeeUid: Number):MetricSettings {
+    var managerSettings:MetricSettings = {
       clientId: clientId,
       employeeUid: employeeUid,
-      settings: new Map<String, ManagerSetting>()
+      settings: new Map<String, MetricSetting>()
     };
     
     managerSettings.settings.set("Promotions", {

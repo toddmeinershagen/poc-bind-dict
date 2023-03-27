@@ -1,20 +1,20 @@
-import { ClientSettings } from './ClientSettings';
-import { ManagerSettings, ManagerSetting } from './ManagerSettings';
+import { MetricDialogSettings } from './MetricDialogSettings';
+import { MetricSettings, MetricSetting } from './MetricSettings';
 import { getClientSettings, getManagerSettings } from './ApiCalls';
 import ManagerSettingsCard from './ManagerSettingsCard';
 import './App.css';
 
 
-function getBindableManagerSettingsFrom(clientSettings:ClientSettings, managerSettings:ManagerSettings):ManagerSettings {
-  let bindableSettings:ManagerSettings = {
+function getBindableManagerSettingsFrom(clientSettings:MetricDialogSettings, managerSettings:MetricSettings):MetricSettings {
+  let bindableSettings:MetricSettings = {
     clientId: managerSettings.clientId,
     employeeUid: managerSettings.employeeUid,
-    settings: new Map<String, ManagerSetting>()
+    settings: new Map<String, MetricSetting>()
   }
 
   clientSettings.settings.forEach((item, key) => {
     var managerSetting = managerSettings.settings.get(key);
-    var setting:ManagerSetting = { timeFrame: managerSetting?.timeFrame ?? item.default };
+    var setting:MetricSetting = { timeFrame: managerSetting?.timeFrame ?? item.default };
     bindableSettings.settings.set(key, setting)
   });
 
@@ -22,7 +22,7 @@ function getBindableManagerSettingsFrom(clientSettings:ClientSettings, managerSe
 }
 
 
-function displayBindableSettings(bindableSettings:ManagerSettings) {
+function displayBindableSettings(bindableSettings:MetricSettings) {
   let json = JSON.stringify(bindableSettings);
   alert(json);
 }
