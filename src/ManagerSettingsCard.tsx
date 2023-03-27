@@ -25,7 +25,7 @@ const ManagerSettingsCard = ({clientSettings, managerSettings}: IManagerSettings
                 <h2>{key}</h2>
                 <h3>{item.description}</h3>
                 <select title={item.description} onChange={(e) => handleChange(e, key)}>
-                    { item.options.map(o => <option value={o.id}>{o.text}</option>) }
+                    { item.options.map(o => <option value={o.id} selected={managerEntry?.timeFrame===o.id}>{o.text}</option>) }
                 </select>
             </Fragment>
         )
